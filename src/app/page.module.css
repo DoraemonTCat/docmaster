@@ -1,142 +1,255 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
+/*
+ * Dashboard Page Styles
+ *
+ * Mobile-first layout matching reference design:
+ * - Greeting section with upload drop zone
+ * - Search bar with filter tabs
+ * - Document cards list
+ * - Floating bottom navigation
+ */
 
 .main {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  padding-top: var(--header-height);
+  padding-bottom: calc(var(--bottom-nav-height) + var(--space-base));
+  min-height: 100vh;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-base);
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
+/* --- Greeting Section --- */
+.greeting {
+  margin-bottom: var(--space-xl);
+  animation: fadeInUp 0.4s ease;
+}
+
+.greetingTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin-bottom: var(--space-xs);
+}
+
+.greetingSubtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+.docCount {
   font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+  color: var(--color-primary);
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
+/* --- Upload Drop Zone (Dashboard card) --- */
+.uploadCard {
+  background: var(--color-primary-bg);
+  border: 2px dashed var(--color-primary-bg-hover);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-2xl) var(--space-base);
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
+  gap: var(--space-sm);
+  text-align: center;
+  margin-bottom: var(--space-xl);
   cursor: pointer;
-  width: fit-content;
+  transition: border-color var(--transition-base), background var(--transition-base), transform var(--transition-fast);
+  animation: fadeInUp 0.5s ease;
+}
+
+.uploadCard:hover {
+  border-color: var(--color-primary-light);
+  background: var(--color-primary-bg-hover);
+  transform: translateY(-2px);
+}
+
+.uploadCardIcon {
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+
+.uploadCardTitle {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.uploadCardSubtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.uploadCardButton {
+  margin-top: var(--space-sm);
+  padding: var(--space-sm) var(--space-xl);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-on-primary);
+  background: var(--color-accent-gradient);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-primary);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.uploadCardButton:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+/* --- Search & Filters --- */
+.searchSection {
+  margin-bottom: var(--space-base);
+  animation: fadeInUp 0.55s ease;
+}
+
+.filterTabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-base);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: var(--space-xs);
+}
+
+.filterTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.filterTab {
+  padding: var(--space-xs) var(--space-base);
+  font-size: var(--font-size-sm);
   font-weight: 500;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.filterTab:hover {
+  background: var(--color-bg-input);
+  border-color: var(--color-text-muted);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.filterTab.active {
+  color: var(--color-text-on-primary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+/* --- Document List --- */
+.documentList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+/* --- Bottom Navigation --- */
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  height: var(--bottom-nav-height);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-xs) var(--space-base);
+  color: var(--color-text-muted);
+  font-size: 10px;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+  border-radius: var(--radius-md);
+}
+
+.navItem:hover {
+  color: var(--color-text-secondary);
+}
+
+.navItem.active {
+  color: var(--color-primary);
+}
+
+.navItemUpload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-xs) var(--space-base);
+  color: var(--color-text-muted);
+  font-size: 10px;
+  font-weight: 500;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  border-radius: var(--radius-md);
+}
+
+.navItemUpload:hover {
+  color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+/* ---- Desktop ---- */
+@media (min-width: 768px) {
+  .container {
+    padding: var(--space-xl) var(--space-2xl);
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .greetingTitle {
+    font-size: var(--font-size-3xl);
   }
-}
 
-@media (max-width: 600px) {
+  .documentList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: var(--space-base);
+  }
+
+  .sectionTitle {
+    grid-column: 1 / -1;
+  }
+
+  .bottomNav {
+    display: none;
+  }
+
   .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+    padding-bottom: var(--space-2xl);
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+@media (min-width: 1024px) {
+  .uploadCard {
+    flex-direction: row;
+    text-align: left;
+    gap: var(--space-xl);
+    padding: var(--space-xl) var(--space-2xl);
   }
 }

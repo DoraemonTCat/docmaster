@@ -1,0 +1,62 @@
+/*
+ * SearchBar Component Styles
+ *
+ * Full-width search input with icon
+ * Smooth focus animation with border color change
+ */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-bg-input);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-xl);
+  padding: var(--space-md) var(--space-base);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+}
+
+.wrapper.focused {
+  background: var(--color-bg-card);
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.searchIcon {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: color var(--transition-base);
+}
+
+.wrapper.focused .searchIcon {
+  color: var(--color-primary);
+}
+
+.input {
+  flex: 1;
+  background: none;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  min-width: 0;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.clearButton:hover {
+  background: var(--color-border);
+  color: var(--color-text-secondary);
+}

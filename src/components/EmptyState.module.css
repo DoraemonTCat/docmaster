@@ -1,0 +1,58 @@
+/*
+ * EmptyState Component Styles
+ *
+ * Centered layout with illustration and CTA
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3xl) var(--space-base);
+  animation: fadeInUp 0.5s ease;
+}
+
+.illustration {
+  margin-bottom: var(--space-xl);
+  opacity: 0.85;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  max-width: 320px;
+  line-height: 1.5;
+  margin-bottom: var(--space-xl);
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-on-primary);
+  background: var(--color-accent-gradient);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-primary);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.ctaButton:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+.ctaButton:active {
+  transform: scale(0.98);
+}

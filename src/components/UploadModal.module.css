@@ -1,0 +1,203 @@
+/*
+ * UploadModal Component Styles
+ *
+ * Fullscreen overlay with centered modal
+ * Animated drop zone with drag state feedback
+ * Success and error states
+ */
+
+/* --- Overlay --- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--color-bg-modal-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-base);
+  animation: fadeIn 0.2s ease;
+}
+
+/* --- Modal --- */
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-xl);
+  animation: fadeInScale 0.25s ease;
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--space-base);
+  right: var(--space-base);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.closeButton:hover {
+  background: var(--color-bg-input);
+  color: var(--color-text-primary);
+}
+
+/* --- Title --- */
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+/* --- Drop Zone --- */
+.dropZone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-2xl) var(--space-base);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-input);
+  transition: border-color var(--transition-base), background var(--transition-base), transform var(--transition-fast);
+  min-height: 200px;
+  text-align: center;
+}
+
+.dropZone.dragging {
+  border-color: var(--color-primary);
+  background: var(--color-primary-bg);
+  transform: scale(1.01);
+}
+
+.dropZone.success {
+  border-color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+/* Drop Icon */
+.dropIcon {
+  margin-bottom: var(--space-xs);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.dropText {
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+}
+
+.dropSubtext {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.fileLimits {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* Browse Button */
+.browseButton {
+  padding: var(--space-sm) var(--space-xl);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-on-primary);
+  background: var(--color-accent-gradient);
+  border-radius: var(--radius-full);
+  transition: opacity var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-primary);
+}
+
+.browseButton:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+.browseButton:active {
+  transform: scale(0.98);
+}
+
+/* --- Uploading State --- */
+.uploadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-base);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.uploadingText {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* --- Success State --- */
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.successIcon {
+  animation: fadeInScale 0.3s ease;
+}
+
+.successText {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  word-break: break-all;
+}
+
+.successSubtext {
+  font-size: var(--font-size-sm);
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+/* --- Error Message --- */
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-base);
+  padding: var(--space-md) var(--space-base);
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  border-radius: var(--radius-lg);
+  animation: fadeInUp 0.2s ease;
+}
+
+/* --- Hidden Input --- */
+.hiddenInput {
+  display: none;
+}

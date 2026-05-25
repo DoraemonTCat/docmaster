@@ -1,10 +1,6 @@
 /**
- * Header Component
- * 
  * แถบด้านบนของแอป แสดงชื่อ "DocMaster" และ user avatar
  * ออกแบบ mobile-first: compact บนมือถือ, ขยายบน desktop
- * 
- * git commit: "feat: add Header component with app branding and user avatar"
  */
 'use client';
 

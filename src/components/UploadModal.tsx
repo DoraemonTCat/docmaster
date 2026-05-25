@@ -1,6 +1,5 @@
 /**
- * UploadModal Component
- * 
+
  * Modal สำหรับอัปโหลดไฟล์ PDF พร้อม Drag & Drop
  * 
  * Features:
@@ -10,8 +9,7 @@
  * - แสดง progress/loading ขณะอัปโหลด
  * - Error messages สำหรับไฟล์ไม่ถูกต้อง
  * - Backdrop click เพื่อปิด modal
- * 
- * git commit: "feat: add UploadModal component with drag-and-drop and file validation"
+
  */
 'use client';
 

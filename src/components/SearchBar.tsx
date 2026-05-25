@@ -1,10 +1,8 @@
 /**
- * SearchBar Component
  * 
  * ช่องค้นหาเอกสารตามชื่อ
  * มี icon ค้นหาและปุ่ม clear
  * 
- * git commit: "feat: add SearchBar component with search icon and clear button"
  */
 'use client';
 

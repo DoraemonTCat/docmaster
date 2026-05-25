@@ -1,6 +1,4 @@
 /**
- * DocumentCard Component
- * 
  * การ์ดแสดงข้อมูลเอกสาร PDF แต่ละรายการ
  * 
  * Features:
@@ -9,8 +7,7 @@
  * - ปุ่ม Open เพื่อเปิดดู PDF
  * - เมนู 3 จุด (more menu) สำหรับ rename/delete
  * - Hover animation
- * 
- * git commit: "feat: add DocumentCard component with inline rename and action menu"
+
  */
 'use client';
 
@@ -56,12 +53,12 @@ function formatRelativeDate(date: Date): string {
 export default function DocumentCard({ doc, index }: DocumentCardProps) {
   const router = useRouter();
   const { renameDocument, deleteDocument } = useDocuments();
-  
+
   const [showMenu, setShowMenu] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(doc.name);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  
+
   const menuRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 

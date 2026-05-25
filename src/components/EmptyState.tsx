@@ -1,10 +1,6 @@
 /**
- * EmptyState Component
- * 
  * แสดงเมื่อยังไม่มีเอกสาร หรือค้นหาไม่เจอ
  * มี illustration + ข้อความ + ปุ่ม CTA upload
- * 
- * git commit: "feat: add EmptyState component for no-documents and no-results views"
  */
 'use client';
 

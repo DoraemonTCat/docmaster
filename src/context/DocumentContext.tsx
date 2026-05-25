@@ -1,18 +1,9 @@
 /**
- * Document Context - Mock Data Store
- * 
- * React Context + useReducer สำหรับจัดการ state ของเอกสารทั้งหมด
- * ใช้ in-memory storage แทนฐานข้อมูลจริง (mock)
- * 
  * Features:
  * - เพิ่มเอกสาร (upload)
  * - แก้ไขชื่อเอกสาร
  * - ลบเอกสาร
  * - ค้นหาเอกสาร
- * 
- * หมายเหตุ: ในระบบจริง จะเปลี่ยนเป็น API calls แทน local state
- * 
- * git commit: "feat: implement DocumentContext with mock data store and CRUD operations"
  */
 'use client';
 

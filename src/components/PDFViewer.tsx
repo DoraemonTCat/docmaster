@@ -1,6 +1,4 @@
 /**
- * PDFViewer Component
- * 
  * แสดงผล PDF แบบหลายหน้า ใช้ react-pdf (wrapper ของ pdf.js)
  * 
  * Features:
@@ -10,11 +8,6 @@
  * - Loading skeleton ขณะโหลดแต่ละหน้า
  * - Zoom controls (+/-/reset)
  * - รองรับมือถือ (touch scroll)
- * 
- * หมายเหตุ: Component นี้ต้องใช้ dynamic import ด้วย ssr: false
- * เพราะ react-pdf ต้องการ browser APIs (Canvas, Web Workers)
- * 
- * git commit: "feat: add PDFViewer component with multi-page scroll, zoom, and page navigation"
  */
 'use client';
 
